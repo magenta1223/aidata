@@ -8,6 +8,7 @@ import os
 import argparse
 from tqdm import tqdm
 from glob import glob
+import re
 
 import torch
 import torch.nn as nn
@@ -32,22 +33,21 @@ from mmseg.core.evaluation import get_palette
 from mmcv.parallel import collate, scatter
 from mmseg.datasets.pipelines import Compose
 import mmcv
+import wget
 
 import random
 
 
-MODEL_TYPES = [
-    'Deraining',
-    'Motion_Deblurring',
-    'Defocus_Deblurring',
-]
+SEG_MODELS = [ m for m in glob("./configs/segmentation/*") if "_" not in m]
 
-MODEL_DICTS = {
-    'Deraining' : None,
-    'Motion_Deblurring' : None,
-    'Defocus_Deblurring' : None
-}
+def parse_lines(line):
+    model_url = [s for s in line.split("|") if "model" in s][0]
+    return re.sub("\[model\]|\(|\)|\\\\", "", model_url).strip()
 
+def get_url(model_nm, markdown):
+    model_url = [ parse_lines(line) for line in markdown if "https://download.openmmlab.com/mmsegmentation/" in line and model_nm in line][0]
+    weights_nm = model_url.split("/")[-1]
+    return model_url, weights_nm
 
 
 
@@ -210,6 +210,7 @@ def main():
     parser.add_argument('--img', help='Image file') 
     parser.add_argument('--input_dir', default= None, help='Directory of validation images')
 
+
     # deraining configs & weights
     parser.add_argument('--Dconfig', default='Restormer/Deraining/Options/Deraining_Restormer.yml', type=str, help='Path to weights')
     parser.add_argument('--Dweights', default='Restormer/Deraining/pretrained_models/deraining.pth', type=str, help='Path to weights')
@@ -242,8 +243,6 @@ def main():
         help='Opacity of painted segmentation map. In (0, 1] range.')
 
     parser.add_argument('--factor', default=8, help='factor for padding')
-
-
     args = parser.parse_args()
 
 
@@ -260,7 +259,17 @@ def main():
     restormer.eval()
 
     #################   SEGMENTATION  #################
+    S = args.Sconfig.split("/")
     
+    with open(f"{S[2]}/README.md", "r") as f:    
+        markdown = f.readlines()    
+
+    model_url, weights_nm = get_url(S[3].replace(".py", ""), markdown)
+
+    if not os.path.exists(f"./configs/segmentation/{S[2]}/{weights_nm}"):
+        print("Weights for this configuration not found. Download pretrained weights")
+        wget.download(model_url, out = f"./configs/segmentation/{S[2]}/{weights_nm}")
+        
     Segmentor = init_segmentor(args.Sconfig, args.Sweights, device=args.device) # build & load model 
 
     #################   INFERENCE    #################
