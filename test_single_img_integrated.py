@@ -261,7 +261,7 @@ def main():
     #################   SEGMENTATION  #################
     S = args.Sconfig.split("/")
     
-    with open(f"{S[2]}/README.md", "r") as f:    
+    with open(f"./configs/segmentation/{S[2]}/README.md", "r") as f:    
         markdown = f.readlines()    
 
     model_url, weights_nm = get_url(S[3].replace(".py", ""), markdown)
