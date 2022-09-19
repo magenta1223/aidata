@@ -5,8 +5,8 @@
 pip install wget
 
 # Inference code
-git clone https://github.com/magenta1223/aidata.git
-cd aidata
+#git clone https://github.com/magenta1223/aidata.git
+#cd aidata
 
 # Restormer
 git clone https://github.com/swz30/Restormer.git
