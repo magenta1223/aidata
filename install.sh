@@ -48,28 +48,31 @@ cp -r Restormer/Deraining/Options/ configs/derain/
 cp -r Restormer/Motion_Deblurring/Options/ configs/motion_deblur/
 cp -r mmsegmentation/configs/ configs/segmentation
 
+# Restormer Weights
+python download.py
 
-# Restormer weights
-## Derain weights
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1uuejKpyo0G_5M4DAO2J9_Dijy550tjc5' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1uuejKpyo0G_5M4DAO2J9_Dijy550tjc5" -O backup.zip && rm -rf /tmp/cookies.txt
-mv backup.zip configs/derain/derain.pth
-rm -f backup.zip
 
-## Denoise weights
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L" -O backup.zip && rm -rf /tmp/cookies.txt
-mv backup.zip configs/denoise/deblur.pth
-rm -f backup.zip
+# # Restormer weights
+# ## Derain weights
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1uuejKpyo0G_5M4DAO2J9_Dijy550tjc5' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1uuejKpyo0G_5M4DAO2J9_Dijy550tjc5" -O backup.zip && rm -rf /tmp/cookies.txt
+# mv backup.zip configs/derain/derain.pth
+# rm -f backup.zip
 
-## Motion Deblur weights
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L" -O backup.zip && rm -rf /tmp/cookies.txt
-mv backup.zip configs/motion_deblur/motion_deblur.pth
-rm -f backup.zip
+# ## Denoise weights
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L" -O backup.zip && rm -rf /tmp/cookies.txt
+# mv backup.zip configs/denoise/deblur.pth
+# rm -f backup.zip
 
-## Defocus & Deblur weights
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10v8BH3Gktl34TYzPy0x-pAKoRSYKnNZp' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10v8BH3Gktl34TYzPy0x-pAKoRSYKnNZp" -O backup.zip && rm -rf /tmp/cookies.txt
-mv backup.zip configs/defocus_deblur/single_image_defocus_deblurring.pth
-rm -f backup.ziphttps://drive.google.com/file/d/167enijHIBa1axZRaRjkk_U6kLKm40Z43/view?usp=sharing
+# ## Motion Deblur weights
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L" -O backup.zip && rm -rf /tmp/cookies.txt
+# mv backup.zip configs/motion_deblur/motion_deblur.pth
+# rm -f backup.zip
 
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=167enijHIBa1axZRaRjkk_U6kLKm40Z43' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=167enijHIBa1axZRaRjkk_U6kLKm40Z43" -O backup.zip && rm -rf /tmp/cookies.txt
-mv backup.zip configs/defocus_deblur/dual_pixel_defocus_deblurring.pth
-rm -f backup.zip
+# ## Defocus & Deblur weights
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10v8BH3Gktl34TYzPy0x-pAKoRSYKnNZp' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10v8BH3Gktl34TYzPy0x-pAKoRSYKnNZp" -O backup.zip && rm -rf /tmp/cookies.txt
+# mv backup.zip configs/defocus_deblur/single_image_defocus_deblurring.pth
+# rm -f backup.ziphttps://drive.google.com/file/d/167enijHIBa1axZRaRjkk_U6kLKm40Z43/view?usp=sharing
+
+# wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=167enijHIBa1axZRaRjkk_U6kLKm40Z43' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=167enijHIBa1axZRaRjkk_U6kLKm40Z43" -O backup.zip && rm -rf /tmp/cookies.txt
+# mv backup.zip configs/defocus_deblur/dual_pixel_defocus_deblurring.pth
+# rm -f backup.zip
