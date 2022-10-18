@@ -31,6 +31,7 @@ curl을 이용해 해당 위치에 anaconda 설치 파일([다른 버전](https:
 Restormer의 pre-trained model weight는 설치 시 다운로드\
 MMSEG의 pre-trained model weight는 predefined configuration from mmseg를 사용해 inference(model 테스트) 시 다운로드 됨. 
 
+<br/><br/>
 
 # Window
 ## git 설치
@@ -55,9 +56,7 @@ MMSEG의 pre-trained model weight는 predefined configuration from mmseg를 사�
 Restormer의 pre-trained model weight는 설치 시 다운로드\
 MMSEG의 pre-trained model weight는 predefined configuration from mmseg를 사용해 inference(model 테스트) 시 다운로드 됨.
 
-
-
-
+<br/><br/>
 
 # Quick Start
 
@@ -76,13 +75,12 @@ img_list = Restormer(
 
 
 
-
+<br/><br/>
 
 # Model 사용법
 ## Model 학습
 새로운 dataset으로 학습할 시,\
-[Restormer github](https://github.com/swz30/Restormer)에서 설명하는 방법과 동일 
+- Restormer : [Restormer github](https://github.com/swz30/Restormer)에서 설명하는 
+방법과 동일 
+- MMSEG : 
 
-
-
-## Model Inference
