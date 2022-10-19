@@ -84,3 +84,35 @@ img_list = Restormer(
 방법과 동일 
 - MMSEG : 
 
+
+<br/><br/>
+## Demo files
+
+다른 데모파일도 동일한 형식과 파라미터를 가진다. 따라서 deraining만을 예시로 설명한다. 
+
+### derain_demo.sh
+
+demo shell script for deraining & segmentation.
+
+**Options**
+
+- —img: single image file path.
+- —input_dir: directory containing images for inference
+- —Dconfig: Restormer deraining configuration path.
+- —Dweighs: pretrained Restormer deraining weights. When you correctly follow the installation guide, all the configurations & weights for Restormer exists in the path.
+- —Sconfig: mmsegmentation configuration files. configs/segmentation/{**MODEL_NAME**}_{**DATASET/TASK**}.py. If you use predefined configuration, the pretrained weights for the corresponding model will be automatically downloaded.
+- device: devices for this task. If you have GPU, “cuda:0” is recommended. or not, “cpu”
+- result_dir: output directory for the results. When the path dose not exist, this directory will be generated.
+- out_file: output file name
+
+**옵션**
+
+- —img: 단일 이미지 파일 사용 시, 그 경로
+- —input_dir: 추론할 이미지가 담긴 디렉토리.
+- —Dconfig: Restormer deraining을 위한 configuration 파일의 경로.
+- —Dweighs: deraining Restormer의 사전훈련된 가중치. 설치 가이드를 정상적으로 수행했다면, demo file의 경로에 모든 configuration과 weights가 존재한다.
+- —Sconfig: mmsegmentation configuration 파일. configs/segmentation/{**모델이름**}_{**데이터셋 /태스크이름**}.py 형태로 구성된다. 만약, mmsegmentation에서 제공하는 configuration을 사용한다면, 그 configuration에 해당하는 모델의 사전훈련된 가중치가 자동으로 다운로드, 적용된다.
+- —Sweight: predefined model을 사용하지 않을 경우 필요한 segmentation model의 가중치의 경로.
+- device: 작업에 사용할 장치. GPU가 있다면 “cuda:0”를 추천한다. 없다면 “cpu”를 사용할 것.
+- result_dir: 작업 수행 후 출력물을 저장할 디렉토리. 존재하지 않는 경우 자동으로 생성된다.
+- out_file: 단일 이미지의 경우 출력물의 이름을 지정할 수 있다.
