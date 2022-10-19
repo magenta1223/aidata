@@ -99,9 +99,9 @@ demo shell script for deraining & segmentation.
 - —img: single image file path.
 - —input_dir: directory containing images for inference
 - —Dconfig: Restormer deraining configuration path.
-- —Dweighs: pretrained Restormer deraining weights. When you correctly follow the installation guide, all the configurations & weights for Restormer exists in the path.
+- —Dweighs: pretrained Restormer deraining weights. When you correctly follow the installation guide, all the configurations & weights for Restormer would exist in the path.
 - —Sconfig: mmsegmentation configuration files. configs/segmentation/{**MODEL_NAME**}_{**DATASET/TASK**}.py. If you use predefined configuration, the pretrained weights for the corresponding model will be automatically downloaded.
-- device: devices for this task. If you have GPU, “cuda:0” is recommended. or not, “cpu”
+- device: devices for this task. If you have GPU, “cuda:0” is recommended. Or not, use “cpu”.
 - result_dir: output directory for the results. When the path dose not exist, this directory will be generated.
 - out_file: output file name
 
