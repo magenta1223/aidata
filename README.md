@@ -86,15 +86,15 @@ img_list = Restormer(
 
 
 <br/><br/>
-## Demo files
+# Demo files
 
 다른 데모파일도 동일한 형식과 파라미터를 가진다. 따라서 deraining만을 예시로 설명한다. 
 
-### derain_demo.sh
+## derain_demo.sh
 
 demo shell script for deraining & segmentation.
 
-**Options**
+### Options (Eng)
 
 - —img: single image file path.
 - —input_dir: directory containing images for inference
@@ -105,7 +105,7 @@ demo shell script for deraining & segmentation.
 - result_dir: output directory for the results. When the path dose not exist, this directory will be generated.
 - out_file: output file name
 
-**옵션**
+### 옵션 (Kor)
 
 - —img: 단일 이미지 파일 사용 시, 그 경로
 - —input_dir: 추론할 이미지가 담긴 디렉토리.
