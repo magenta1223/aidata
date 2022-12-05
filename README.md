@@ -1,3 +1,16 @@
+# Abstract: Restormer
+
+Restormer는 CNN (Convolutional Neural Network)와 Transformer를 결합했을 때, 폭증하는 계산량을 완화하기 위해, 고안된 Model이다.
+
+![image](https://user-images.githubusercontent.com/79392187/205552442-46e95998-b0c5-4db5-a73f-1aefbd121e12.png)
+
+Multi-Dconv head transposed attention (MDTA)
+- Transformer의 self-attention을 대체해 계산량을 줄임
+
+Gated-Dconv feed-forward network (GDFN)
+- Refined image attribute에 좀더 집중하게 만들어, high-quality output을 이끌어냄
+
+
 # Ubuntu
 ## git 설치
 
