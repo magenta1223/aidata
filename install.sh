@@ -13,7 +13,7 @@ git clone https://github.com/swz30/Restormer.git
 cd Restormer
 
 # RTX 30 Series
-conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+pip install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
 
 # or lower 
 # conda install pytorch=1.8 torchvision cudatoolkit=10.2 -c pytorch
